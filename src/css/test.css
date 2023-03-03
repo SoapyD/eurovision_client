@@ -1,0 +1,47 @@
+
+h1 {
+    color: white;
+}
+
+body {
+    background-color: #272238;
+}
+
+.Banner {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #272238;
+}
+
+.Item__Header {
+    background-color: #B73F34;   
+    color: #FFFFFF
+}
+
+.Item__GroupScores {
+    color: #FFFFFF;
+    margin-bottom: 50px;
+}
+
+.rounded_borders {
+	background: #B73F34;	 
+	border-radius: 15px;
+	border: 6px solid white;
+}
+
+/* .score__container {
+    height: 70px;
+} */
+
+
+.score__row {
+    height: 70px;
+} 
+
+.score {
+	background: #B73F34;	 
+	/* border-radius: 100%; */
+	border: 6px solid white;
+    height: 100%;
+    /* width: 70px; */
+}
