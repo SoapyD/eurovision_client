@@ -61,4 +61,4 @@ jobs:
           app-name: 'eurovision-client-v2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_703474B730A04F7A974E68EA75F3D4BE }}
-          package: release.zip
+          package: .
