@@ -13,8 +13,8 @@ import Admin__User from './components/Admin/Admin__User'
 function App() {
 
   const [userContext, setUserContext] = useContext(UserContext)
-  // console.log(userContext)
 
+  /*
   const verifyUser = useCallback(() => {
     fetch(process.env.REACT_APP_SERVER_URL + "/refreshToken", {
       method: "POST",
@@ -59,12 +59,13 @@ function App() {
   ) : (
     <Loader />
   );
+  */
 
-  // return (
-  //   <div className="App">
-  //     <Admin__Routes/>
-  //   </div>       
-  // )
+  return (
+    <div className="App">
+      <Admin__Routes/>
+    </div>       
+  )
 
 }
 
