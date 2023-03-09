@@ -3,17 +3,19 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/test.css";
 
-import { useCallback, useContext, useEffect, useState } from "react"
-import Loader from "./components/Loader"
-import { UserContext } from "./context/UserContext"
+import Admin__Refresh from './components/Admin/Admin__Refresh'
 
-import Admin__Routes from './components/Admin/Admin__Routes'
-import Admin__User from './components/Admin/Admin__User'
+// import { useCallback, useContext, useEffect, useState } from "react"
+// import Loader from "./components/Loader"
+// import { UserContext } from "./context/UserContext"
+
+// import Admin__Routes from './components/Admin/Admin__Routes'
+// import Admin__User from './components/Admin/Admin__User'
 
 function App() {
 
+  /*
   const [userContext, setUserContext] = useContext(UserContext)
-
 
   const verifyUser = useCallback(() => {
     fetch(process.env.REACT_APP_SERVER_URL + "/refreshToken", {
@@ -59,13 +61,13 @@ function App() {
   ) : (
     <Loader />
   );
-  
+  */
 
-  // return (
-  //   <div className="App">
-  //     <Admin__Routes/>
-  //   </div>       
-  // )
+  return (
+    <div className="App">
+      <Admin__Refresh/>
+    </div>       
+  )
 
 }
 
