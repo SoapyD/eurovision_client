@@ -21,7 +21,7 @@ function Admin__Register() {
     
         const genericErrorMessage = "Something went wrong! Please try again later."
 
-        let url = 'eurovision-server-v2.azurewebsites.net'
+        let url = 'eurovision-server-v2.azurewebsites.net:8080'
     
         // fetch(process.env.REACT_APP_SERVER_URL + "/register", {
         fetch(url + "/register", {            
