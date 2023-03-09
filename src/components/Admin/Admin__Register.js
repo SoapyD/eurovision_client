@@ -20,8 +20,11 @@ function Admin__Register() {
         setError("")
     
         const genericErrorMessage = "Something went wrong! Please try again later."
+
+        let url = 'eurovision-server-v2.azurewebsites.net'
     
-        fetch(process.env.REACT_APP_SERVER_URL + "/register", {
+        // fetch(process.env.REACT_APP_SERVER_URL + "/register", {
+        fetch(url + "/register", {            
             method: "POST",
             credentials: "include",
             headers: { 
@@ -53,6 +56,7 @@ function Admin__Register() {
             setIsSubmitting(false)
             setError(genericErrorMessage)
             console.log(process.env.REACT_APP_SERVER_URL)
+            console.log(url)
             console.log(error)
         })
     }
