@@ -55,9 +55,9 @@ function Admin__Register() {
         .catch(error => {
             setIsSubmitting(false)
             setError(genericErrorMessage)
-            console.log(process.env.REACT_APP_SERVER_URL)
+            // console.log(process.env.REACT_APP_SERVER_URL)
             // console.log(url)
-            console.log(error)
+            // console.log(error)
         })
     }
 
