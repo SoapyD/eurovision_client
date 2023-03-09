@@ -23,8 +23,8 @@ function Admin__Register() {
 
         let url = 'https://eurovision-server-v2.azurewebsites.net'
     
-        // fetch(process.env.REACT_APP_SERVER_URL + "/register", {
-        fetch(url + "/register", {            
+        fetch(process.env.REACT_APP_SERVER_URL + "/register", {
+        // fetch(url + "/register", {            
             method: "POST",
             credentials: "include",
             headers: { 
@@ -56,7 +56,7 @@ function Admin__Register() {
             setIsSubmitting(false)
             setError(genericErrorMessage)
             console.log(process.env.REACT_APP_SERVER_URL)
-            console.log(url)
+            // console.log(url)
             console.log(error)
         })
     }
