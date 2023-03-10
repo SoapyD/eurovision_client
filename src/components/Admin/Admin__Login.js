@@ -45,7 +45,7 @@ function Admin__Login() {
                 }
             } else {
                 const data = await response.json()
-                console.log("LOGIN TOKEN:", data.token)
+                // console.log("LOGIN TOKEN:", data.token)
                 setUserContext(oldValues => {
                     return { ...oldValues, token: data.token }
                 })
