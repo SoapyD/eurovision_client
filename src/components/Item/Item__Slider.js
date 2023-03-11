@@ -1,20 +1,28 @@
 
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import {SocketContext} from '../../context/Socket';
+import { UserContext } from "../../context/UserContext"
 
 function valuetext(value) {
     return `${value}°C`;
 }
-  
 
 const Item__Slider = (props) => {
-
+    const socket = useContext(SocketContext);
     // console.log(props) 
     const [sliderType, setsliderType] = useState(props.type)
     const [country, setcountry] = useState(props.country)
     // console.log(sliderType)
     // console.log(country)
+
+    const sendScore = (e, v) => {
+        console.log("TEST", v)
+        // let message = '{v}'
+        // socket.emit("send_message", { message, room });
+    }
+
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -38,8 +46,8 @@ const Item__Slider = (props) => {
                             boxShadow: "0px 0px 0px 8px rgba("+props.colour+", 0.16)"
                           },                        
                     },
-
-                }}                
+                }}    
+                onChange={sendScore}            
             />     
         </Box>
     )

@@ -3,13 +3,13 @@ import { Outlet } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 
 
 const Header = () => {
 
-  const [userContext, setUserContext] = useContext(UserContext)  
+  const [userContext] = useContext(UserContext)  
 
   return !userContext.token ? (
     <>
