@@ -1,12 +1,11 @@
 
-import { useEffect, useState } from "react";
-import { socket } from "./Socket"
-
-// import io from "socket.io-client";
-// const socket = io.connect(`${process.env.REACT_APP_SERVER_URL}`);
-
+import { useEffect, useState, useContext } from "react";
+// import { socket } from "./Socket"
+import {SocketContext} from '../context/Socket';
 
 function SocketTest() {
+
+    const socket = useContext(SocketContext);
 
     //Room State
     const [room, setRoom] = useState("");
@@ -36,7 +35,7 @@ function SocketTest() {
 
     return <div>
         <input
-        placeholder="Room Number..."
+        placeholder="Room Name..."
         onChange={(event) => {
           setRoom(event.target.value);
         }}
@@ -50,7 +49,9 @@ function SocketTest() {
       />
       <button onClick={sendMessage}> Send Message</button>
       <h1> Message:</h1>
-      {messageReceived}    
+      <p>
+        {messageReceived}    
+      </p>
     </div>
 
 }

@@ -1,8 +1,12 @@
+import {useEffect} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import { run as runHolder } from 'holderjs/holder';
 
 function Item__Carousel() {
   // 1133x656
+  useEffect(() => {
+    runHolder('image-class-name')
+  })
 
   return (
     <Carousel>
