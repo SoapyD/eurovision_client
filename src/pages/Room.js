@@ -17,7 +17,6 @@ const Room = () => {
     const [userContext] = useContext(UserContext)
 
     if(userContext.details){
-      // console.log(userContext.details)
       //JOIN ROOM
       socket.emit("join_room", userContext.details.room);      
     }

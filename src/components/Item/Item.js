@@ -19,8 +19,8 @@ const Item = (props) => {
     return(
         <Container>
             <Item__Header {...props}/>
-            <Item__Carousel/>
             <Container>
+                <Item__Carousel/>
                 <Item__Slider colour={song_colour} type='song' country={props.country}/>
                 <Item__Slider colour={staging_colour} type='staging' country={props.country}/>
                 <Item__Chart song_colour={song_colour} staging_colour={staging_colour} />

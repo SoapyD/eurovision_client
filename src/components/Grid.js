@@ -10,16 +10,18 @@ const entries = [
 let item_list = []
 entries.forEach((entry, index) => {
   var id = ("0" + (index + 1).toString()).slice(-2);
-  item_list.push(<Item id={id} country={entry.country} act={entry.act}/>)
+  item_list.push(
+  <Col md={6} lg={4} key={index}>
+    <Item id={id} country={entry.country} act={entry.act}/>
+  </Col>
+  )
 })
 
 const Grid = () => {
     return (
         <Container>
           <Row>
-            <Col md={6} lg={4}>
-                {item_list}
-            </Col>                      
+            {item_list}                   
           </Row>
         </Container>
       );    

@@ -21,6 +21,11 @@ const Item__Slider = (props) => {
     const [country, setcountry] = useState(props.country)
     const [score, setScore] = useState()
 
+    // if(score){
+    //     default_score = score
+    //     console.log("score",score)
+    // }
+
     const sendScore = (e, v) => {
         // console.log("TEST", v)
         if(userContext.details){
@@ -45,6 +50,7 @@ const Item__Slider = (props) => {
                         aria-label="Small steps"
                         defaultValue={default_score}
                         getAriaValueText={valuetext}
+                        // disabled={true}
                         step={1}
                         marks
                         min={1}

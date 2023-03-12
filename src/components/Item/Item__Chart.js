@@ -11,59 +11,18 @@ import {
   Legend
 } from "recharts";
 
-const data = [
-  {
-    name: "1",
-    staging: 40,
-    song: 24
-  },
-  {
-    name: "2",
-    staging: 30,
-    song: 13
-  },
-  {
-    name: "3",
-    staging: 20,
-    song: 98
-  },
-  {
-    name: "4",
-    staging: 27,
-    song: 39
-  },
-  {
-    name: "5",
-    staging: 18,
-    song: 48
-  },
-  {
-    name: "6",
-    staging: 23,
-    song: 38
-  },
-  {
-    name: "7",
-    staging: 34,
-    song: 43
-  },
-  {
-    name: "8",
-    staging: 34,
-    song: 43
-  },
-  {
-    name: "9",
-    staging: 34,
-    song: 43
-  },
-  {
-    name: "10",
-    staging: 34,
-    song: 43
-  }
-];
+const data = [];
 
+const setScores = () => {
+  for(let i=0; i<10; i++){
+    data.push({
+      name: i+1,
+      staging: Math.floor(Math.random() * 20)+1,
+      song: Math.floor(Math.random() * 20)+1,      
+    })
+  }
+}
+setScores()
 
 const Item__Chart = (props) => {
 
