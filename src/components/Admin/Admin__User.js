@@ -18,7 +18,7 @@ const Admin__User = () => {
     }).then(async response => {
       if (response.ok) {
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         setUserContext(oldValues => {
           return { ...oldValues, details: data }
         })

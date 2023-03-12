@@ -1,7 +1,7 @@
 
 import { UserContext } from "../../context/UserContext"
 import { Navigate } from "react-router-dom";
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import Loader from "../Loader"
 
 const Admin__Logout = () => {

@@ -37,7 +37,7 @@ function Item__Carousel() {
         <img
         
           className="d-block w-100"
-          src="holder.js/345x200?text=Better&bg=20232a"
+          src="holder.js/345x200?text=Sweepstaker&bg=20232a"
           alt="Third slide"
         />
 

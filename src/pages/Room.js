@@ -3,6 +3,7 @@ import { useContext } from "react";
 import {SocketContext} from '../context/Socket';
 import { UserContext } from "../context/UserContext"
 
+import Loader from "../components/Loader"
 import Banner from "../components/Banner";
 import Grid from "../components/Grid";
 import Stack from 'react-bootstrap/Stack';
@@ -13,36 +14,37 @@ import Tabs from 'react-bootstrap/Tabs';
 const Room = () => {
 
     const socket = useContext(SocketContext);
-    const [userContext, setUserContext] = useContext(UserContext)
-    // setUserContext(oldValues => {
-    //   return { ...oldValues, room: 'test room' }
-    // })  
-    // console.log(userContext)
-    //JOIN ROOM
-    // socket.emit("join_room", userContext.room);
-    console.log("TEST")
+    const [userContext] = useContext(UserContext)
 
-    return <>
-    
-    <Banner/>
+    if(userContext.details){
+      // console.log(userContext.details)
+      //JOIN ROOM
+      socket.emit("join_room", userContext.details.room);      
+    }
 
-    <Tabs
-      defaultActiveKey="scores"
-      id="uncontrolled-tab-example"
-      className="mb-3"
-      fill
-    >
-      <Tab eventKey="scores" title="Scores">
-          <Stack gap={5}>
-          <Grid />
-        </Stack>        
-      </Tab>
-      <Tab eventKey="summary" title="Summary">
-        <Banner/>
-      </Tab>
-    </Tabs> 
+    return userContext.details ? (
+    <>
+      <Banner/>
 
-    </>;
+      <Tabs
+        defaultActiveKey="scores"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+        fill
+      >
+        <Tab eventKey="scores" title="Scores">
+            <Stack gap={5}>
+            <Grid />
+          </Stack>        
+        </Tab>
+        <Tab eventKey="summary" title="Summary">
+          <Banner/>
+        </Tab>
+      </Tabs> 
+    </>
+    ): (
+      <Loader />
+    );
   };
   
   export default Room;
