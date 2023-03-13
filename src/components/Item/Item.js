@@ -20,7 +20,7 @@ const Item = (props) => {
         <Container>
             <Item__Header {...props}/>
             <Container>
-                <Item__Carousel/>
+                <Item__Carousel country={props.country}/>
                 <Item__Slider colour={song_colour} type='song' country={props.country}/>
                 <Item__Slider colour={staging_colour} type='staging' country={props.country}/>
                 <Item__Chart song_colour={song_colour} staging_colour={staging_colour} />

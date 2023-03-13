@@ -5,7 +5,7 @@ const Banner = () => {
     return(
         <Container>
         <Image className="Banner"
-            src="./img/ESC2023_Ukraine_LIVERPOOL_RGB_White_600px.png"
+            src="./img/banner.png"
             rounded
         />
         </Container>
