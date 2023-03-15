@@ -21,7 +21,15 @@ const Room = () => {
       socket.emit("join_room", userContext.details.room);      
     }
 
-    return userContext.details ? (
+    let has_room_data = false;
+    if(userContext.details){
+      if(userContext.details){
+        has_room_data = true;
+      }
+    }
+    // console.log(has_room_data)
+
+    return has_room_data ? (
     <>
       <Banner/>
 
