@@ -18,7 +18,12 @@ const Room = () => {
 
     if(userContext.details){
       //JOIN ROOM
-      socket.emit("join_room", userContext.details.room);      
+      socket.emit("join_room", {
+        room_name: userContext.details.room_name,
+        message: {
+          username: userContext.details.user.username
+        }
+      });      
     }
 
     let has_room_data = false;

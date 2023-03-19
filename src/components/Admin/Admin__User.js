@@ -18,8 +18,14 @@ const Admin__User = () => {
     }).then(async response => {
       if (response.ok) {
         const data = await response.json()
-        console.log(data)
+
         setUserContext(oldValues => {
+          // if(!('login_state' in oldValues)){
+          //   data.login_state = 0
+          //   console.log("adding")
+          // }
+          // data.login_state = 0
+          console.log(data)          
           return { ...oldValues, details: data }
         })
       } else {

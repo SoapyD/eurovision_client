@@ -29,15 +29,24 @@ const Item__Slider = (props) => {
     const sendScore = (e, v) => {
         // console.log("TEST", v)
         if(userContext.details){
-            console.log({
-                room: userContext.details.room,
-                country: country,
-                sliderType: sliderType,
-                value: v
-            })
+            // console.log({
+            //     room: userContext.details.room_name,
+            //     country: country,
+            //     sliderType: sliderType,
+            //     value: v
+            // })
             setScore(v)
             // let message = '{v}'
-            // socket.emit("send_message", { message, userContext.details.room });
+            socket.emit("send_score", 
+            { 
+                room_name: userContext.details.room_name
+                ,message: {
+                    username: userContext.details.user.username,
+                    country: country,
+                    sliderType: sliderType,
+                    value: v
+                } 
+            });
         }
     }
 

@@ -1,5 +1,8 @@
-// import "./styles.css";
-import React from "react";
+
+// import React from "react";
+import { useEffect, useState, React, useContext } from "react";
+import {SocketContext} from '../../context/Socket';
+
 import {
   BarChart,
   Bar,
@@ -11,44 +14,60 @@ import {
   Legend
 } from "recharts";
 
-const data = [];
 
-const setScores = () => {
-  for(let i=0; i<10; i++){
-    data.push({
-      name: i+1,
-      staging: Math.floor(Math.random() * 20)+1,
-      song: Math.floor(Math.random() * 20)+1,      
-    })
-  }
-}
-setScores()
+// const setScores = () => {
+//   let temp_data = [];
+//   for(let i=0; i<10; i++){
+//     temp_data.push({
+//       name: i+1,
+//       staging: 0,
+//       song: 0            
+//     })
+//   }
+//   return temp_data;
+// }
+
 
 const Item__Chart = (props) => {
 
-    return(
-        <ResponsiveContainer height={200}>
-            <BarChart
-            width={800}
-            height={300}
-            data={data}
-            margin={{
-                top: 25,
-                right: 20,
-                left: 20,
-                bottom: 5
-            }}
-            >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            {/* <YAxis /> */}
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="song" fill={props.song_colour} />
-            <Bar dataKey="staging" fill={props.staging_colour} />
-            </BarChart>
-        </ResponsiveContainer>
-    )
+  const socket = useContext(SocketContext);  
+  const [data, setData] = useState("");
+  
+
+  useEffect(() => {
+    // let country = 'croatia'
+    socket.on("receive_chart", (data) => {
+      // console.log(data)
+      // console.log(props)
+      if(props.country == data.country){
+        setData(data.scores);
+      }
+    });
+}, [socket], props);
+
+  return(
+      <ResponsiveContainer height={200}>
+          <BarChart
+          width={800}
+          height={300}
+          data={data}
+          margin={{
+              top: 25,
+              right: 20,
+              left: 20,
+              bottom: 5
+          }}
+          >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          {/* <YAxis /> */}
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="song" fill={props.song_colour} />
+          <Bar dataKey="staging" fill={props.staging_colour} />
+          </BarChart>
+      </ResponsiveContainer>
+  )
 }
 
 export default Item__Chart
