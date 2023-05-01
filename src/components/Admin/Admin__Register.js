@@ -63,23 +63,25 @@ function Admin__Register() {
     return !userContext.token ? (
     <>
     {error && <Alert variant="danger">{error}</Alert>}
-    <Form onSubmit={formSubmitHandler} className="auth-form">
-      <Form.Group className="mb-3" controlId="formUserName">
-        <Form.Label>UserName</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" 
-        value={username} onChange={e => setUsername(e.target.value)}/>
-      </Form.Group>
+    <div className="auth-form-wrapper">
+        <Form onSubmit={formSubmitHandler} className="auth-form">
+        <Form.Group className="mb-3" controlId="formUserName">
+            <Form.Label>UserName</Form.Label>
+            <Form.Control type="text" placeholder="Enter username" 
+            value={username} onChange={e => setUsername(e.target.value)}/>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password"
-        value={password} onChange={e => setPassword(e.target.value)}/>
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password"
+            value={password} onChange={e => setPassword(e.target.value)}/>
+        </Form.Group>
 
-      <Button variant="primary" disabled={isSubmitting} type="submit">
-        {`${isSubmitting ? "Registering" : "Register"}`}
-      </Button>
-    </Form>
+        <Button variant="primary" disabled={isSubmitting} type="submit">
+            {`${isSubmitting ? "Registering" : "Register"}`}
+        </Button>
+        </Form>
+    </div>
     </>) : (
         <Navigate to='/' />        
     )

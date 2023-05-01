@@ -1,5 +1,5 @@
 
-h1,h2 {
+h1,h2,p {
     color: white;
 }
 
@@ -31,21 +31,26 @@ body {
 
 
 .score__row, .score {
-    height: 70px;
-    line-height: 52px;    
+    height: 90px;
+    line-height: 74px; /* this plus cell padding (16px) equals score height */   
 } 
 
 .score {
 	background: #B73F34;	 
 	border: 6px solid white;
     color:white;
-    font-size: 50px;
+    font-size: 60px; 
 }
 
 .carousel-img {
     height: 200px;
     /* max-height: 200px;
     width: auto;     */
+}
+
+.auth-form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 /* .score.p {

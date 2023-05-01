@@ -1,7 +1,8 @@
 
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
-import { useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import {SocketContext} from '../../context/Socket';
 import { UserContext } from "../../context/UserContext"
 import Col from 'react-bootstrap/Col';
@@ -20,6 +21,7 @@ const Item__Slider = (props) => {
     const [sliderType, setsliderType] = useState(props.type)
     const [country, setcountry] = useState(props.country)
     const [score, setScore] = useState()
+    const [value, setValue] = useState(5)    
 
     // if(score){
     //     default_score = score
@@ -27,16 +29,10 @@ const Item__Slider = (props) => {
     // }
 
     const sendScore = (e, v) => {
-        // console.log("TEST", v)
         if(userContext.details){
-            // console.log({
-            //     room: userContext.details.room_name,
-            //     country: country,
-            //     sliderType: sliderType,
-            //     value: v
-            // })
-            setScore(v)
-            // let message = '{v}'
+
+            // setScore(v)
+
             socket.emit("send_score", 
             { 
                 room_name: userContext.details.room_name
@@ -50,16 +46,31 @@ const Item__Slider = (props) => {
         }
     }
 
+    useEffect(() => {
+        socket.on("receive_score", (data) => {
+          if(props.country === data.country
+            && props.type === data.sliderType){
+            setScore(data.score);
+            setValue(data.score);
+            // console.log(data)
+          }
+        });
+    }, [socket], props);
+
 
     return (
-        <Row className='score__row'>        
+        <Row className='score__row'>      
             <Col xs={8}>
                 <Box sx={{ width: '100%', padding: '15px 0 0 0' }}>
+                <Typography id="non-linear-slider" gutterBottom>
+                    {sliderType}
+                </Typography>
                     <Slider
-                        aria-label="Small steps"
+                        aria-label="non-linear-slider"
                         defaultValue={default_score}
                         getAriaValueText={valuetext}
                         // disabled={true}
+                        value={value}
                         step={1}
                         marks
                         min={1}
