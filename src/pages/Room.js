@@ -49,9 +49,9 @@ const Room = () => {
             <Grid />
           </Stack>        
         </Tab>
-        <Tab eventKey="summary" title="Summary">
+        {/* <Tab eventKey="summary" title="Summary">
           <Banner/>
-        </Tab>
+        </Tab> */}
       </Tabs> 
     </>
     ): (

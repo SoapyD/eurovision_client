@@ -42,7 +42,7 @@ function Item__Carousel(props) {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      {/* <Carousel.Item>
         <img
         
           className="d-block w-100"
@@ -51,12 +51,9 @@ function Item__Carousel(props) {
         />
 
         <Carousel.Caption>
-          {/* <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p> */}
+          {}
         </Carousel.Caption>
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
   );
 }
