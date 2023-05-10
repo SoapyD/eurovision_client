@@ -28,6 +28,14 @@ const Item__Slider = (props) => {
     //     console.log("score",score)
     // }
 
+    const runScore = (e, v) => {
+        // console.log("TEST", v)
+        if(userContext.details){
+            setScore(v)
+            setValue(v)
+        }
+    }
+
     const sendScore = (e, v) => {
         if(userContext.details){
 
@@ -87,7 +95,8 @@ const Item__Slider = (props) => {
                                 },                        
                             },
                         }}    
-                        onChange={sendScore}            
+                        onChange={runScore}                        
+                        onChangeCommitted={sendScore}            
                     />     
                 </Box>
             </Col>
